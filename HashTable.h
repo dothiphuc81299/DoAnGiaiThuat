@@ -1,15 +1,35 @@
 #pragma once
-#include"CreateWord.h"
-struct Node
+#include<iostream>
+#include"singlyLinkedList.cpp"
+#include"Word.h"
+#include"Node.h"
+using namespace std;
+class HashTable
 {
+private:
+	singlyLinkedList<Word*> *list;
+	static int size;
+	
 	int key;
-	Word value;
-	struct Node *next;
+public:
+	HashTable();
+	virtual ~HashTable();
+	int hashFunc(string);
+	void addOneWord();
+	void hienThiTatCa();
+	void chinhSuaThongTinMotTu();
+	void xoaMotTu();
+	int timKiemMotTu(string tu);
+	void xoaMotTuTrongFileText(Word* tmp);
+	void hienThiChiTietMotTu(string tu);
+	void loadFileIntoHashTable();
+	void ghiDuLieuVaoFile(Word *tmp);
+	void themMotTu(Word*);
+	int getRanDom();
+	int getSize();
+	string hamRamdomTuTrongBangBam();
+	char hamRanDomTrongKiTu();
+	int nhapKiTuConThieu();
+	void trochoi();
+
 };
-typedef struct Node *node;
-struct HashTable
-{
-	struct node *head;
-	struct node *tail;
-};
-struct HashTable *arrayItem;
